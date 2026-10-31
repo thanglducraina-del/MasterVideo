@@ -8,6 +8,8 @@ Có thêm chế độ **dựng video review sản phẩm** từ ảnh người r
 script → AI voice-over → AI images / clips / 3D scenes → sound effects and music → edited video with captions → Shorts → YouTube upload pack.
 It also builds product-review videos from reviewer photos, product photos and a script.*
 
+🌐 **Trang giới thiệu / Website:** https://thanglducraina-del.github.io/MasterVideo/
+
 ## Tải về / Download
 
 Vào mục **[Releases](../../releases/latest)** và tải file `MasterVideo_Setup_V….exe` mới nhất.
