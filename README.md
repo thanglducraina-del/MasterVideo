@@ -36,8 +36,8 @@ Nút ở góc trên bên phải bảng điều khiển: **xanh** = đang dùng b
 
 ## Lưu ý / Notes
 
-- **Dịch vụ trả phí dùng key của bạn (BYOK):** ElevenLabs, Google Gemini, fal.ai, Runway, Fish Audio, Azure… Bạn trả tiền trực tiếp cho nhà cung cấp; muốn đăng video kiếm tiền thì dùng gói có quyền thương mại của họ (thường là gói trả phí). Không có key vẫn dùng được giọng miễn phí trên máy, ảnh/clip trên card NVIDIA, nhạc nền tự tạo.
-  *Paid services use your own keys (BYOK); you pay providers directly; for monetised videos use a plan with commercial rights (usually a paid plan). Without keys you can still use free on-device voices, local NVIDIA image/clip generation and generated background music.*
+- **Dịch vụ trả phí dùng key của bạn (BYOK):** ElevenLabs, Google Gemini, fal.ai, Runway, Fish Audio, Azure… Bạn trả tiền trực tiếp cho nhà cung cấp. Không có key vẫn dùng được giọng miễn phí trên máy, ảnh/clip trên card NVIDIA, nhạc nền tự tạo.
+  *Paid services use your own keys (BYOK); you pay providers directly. Without keys you can still use free on-device voices, local NVIDIA image/clip generation and generated background music.*
 - **ComfyUI, FFmpeg và Blender không nằm trong bộ cài** — phần mềm tải bản chính thức về máy bạn khi bạn bấm nút.
   *ComfyUI, FFmpeg and Blender are not bundled — the app downloads the official releases to your PC when you ask it to.*
 - Repo này chỉ chứa **bộ cài** và file thông tin cập nhật có chữ ký số; không chứa mã nguồn.
