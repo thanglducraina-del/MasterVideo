@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MasterVideo – Phần mềm làm video YouTube faceless tự động cho Windows</title>
+<meta name="description" content="MasterVideo: phần mềm Windows làm video YouTube không lộ mặt gần như tự động — kịch bản, giọng đọc AI, ảnh/clip AI, nhạc nền, phụ đề, Shorts, gói đăng YouTube. Dùng thử miễn phí 7 ngày hoặc 3 video. | Windows app that builds faceless YouTube videos almost automatically.">
+<link rel="canonical" href="https://thanglducraina-del.github.io/MasterVideo/">
+<link rel="alternate" hreflang="vi" href="https://thanglducraina-del.github.io/MasterVideo/">
+<link rel="alternate" hreflang="en" href="https://thanglducraina-del.github.io/MasterVideo/?lang=en">
+<meta name="theme-color" content="#0f172a">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MasterVideo">
+<meta property="og:title" content="MasterVideo – Faceless YouTube videos, almost automatically">
+<meta property="og:description" content="Script → AI voice-over → AI images, clips &amp; 3D → music &amp; SFX → captions → Shorts → YouTube pack. Windows 10/11. Free trial: 7 days or 3 videos.">
+<meta property="og:url" content="https://thanglducraina-del.github.io/MasterVideo/">
+<meta property="og:image" content="https://thanglducraina-del.github.io/MasterVideo/og.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="MasterVideo – faceless YouTube videos, almost automatically">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MasterVideo – Faceless YouTube videos, almost automatically">
+<meta name="twitter:description" content="Windows app: script → AI voice → AI visuals → music → captions → Shorts → YouTube pack. Free trial: 7 days or 3 videos.">
+<meta name="twitter:image" content="https://thanglducraina-del.github.io/MasterVideo/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Cpath d='M24 18l24 14-24 14z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#f8fafc;--surface:#ffffff;--surface-2:#eef2f7;--text:#0f172a;--muted:#475569;
+  --border:#dbe2ea;--accent:#2563eb;--accent-ink:#ffffff;--accent-soft:#dbeafe;--warn:#b45309;--ok:#15803d;
+  --shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0b1120;--surface:#111a2e;--surface-2:#17223a;--text:#e5ecf5;--muted:#9fb0c6;
+    --border:#24324d;--accent:#60a5fa;--accent-ink:#0b1120;--accent-soft:#1b2c4d;--warn:#fbbf24;--ok:#4ade80;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+html[data-lang="vi"] .en,html[data-lang="en"] .vi{display:none!important}
+a{color:var(--accent)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+header.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;color:var(--text);text-decoration:none}
+.logo{width:30px;height:30px;border-radius:8px;background:var(--accent);display:grid;place-items:center}
+.logo svg{width:14px;height:14px}
+nav.links{display:flex;gap:18px;margin-left:auto;font-size:14px}
+nav.links a{color:var(--muted);text-decoration:none}
+nav.links a:hover{color:var(--text)}
+.lang{display:inline-flex;border:1px solid var(--border);border-radius:999px;overflow:hidden;flex:none}
+.lang button{border:0;background:transparent;color:var(--muted);font:600 13px/1 inherit;padding:8px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.hero{padding:72px 0 48px}
+.hero h1{font-size:clamp(30px,5.2vw,52px);line-height:1.12;margin:0 0 18px;letter-spacing:-.02em;max-width:820px}
+.hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:720px;margin:0 0 28px}
+.pill{display:inline-block;font-size:13px;font-weight:600;color:var(--accent);background:var(--accent-soft);padding:5px 12px;border-radius:999px;margin-bottom:18px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:17px;text-decoration:none;padding:14px 24px;border-radius:12px;background:var(--accent);color:var(--accent-ink);box-shadow:var(--shadow)}
+.btn:hover{filter:brightness(1.07)}
+.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--border);box-shadow:none;font-weight:600}
+.small{font-size:14px;color:var(--muted)}
+.flow{margin-top:44px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.flow span{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:600}
+.flow i{color:var(--muted);font-style:normal}
+section{padding:56px 0;border-top:1px solid var(--border)}
+section h2{font-size:clamp(24px,3.4vw,34px);margin:0 0 8px;letter-spacing:-.01em}
+section .sub{color:var(--muted);margin:0 0 28px;max-width:720px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.ico{width:36px;height:36px;border-radius:10px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;margin-bottom:12px}
+.ico svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+ol.steps{list-style:none;padding:0;margin:0;counter-reset:s;display:grid;gap:14px}
+ol.steps li{counter-increment:s;position:relative;padding:16px 18px 16px 64px;background:var(--surface);border:1px solid var(--border);border-radius:14px}
+ol.steps li::before{content:counter(s);position:absolute;left:18px;top:14px;width:32px;height:32px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;display:grid;place-items:center}
+ol.steps li>b{display:block}
+th[scope=row],tbody th{white-space:nowrap}
+ol.steps span.d{color:var(--muted);font-size:15px}
+kbd{font:600 13px/1 ui-monospace,Consolas,monospace;background:var(--surface-2);border:1px solid var(--border);border-bottom-width:2px;border-radius:6px;padding:2px 6px;white-space:nowrap}
+.note{margin-top:18px;padding:14px 16px;border-left:4px solid var(--warn);background:var(--surface);border-radius:8px;font-size:15px}
+.two{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+th{background:var(--surface-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+ul.check{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+ul.check li{padding-left:28px;position:relative}
+ul.check li::before{content:"";position:absolute;left:4px;top:7px;width:12px;height:7px;border-left:2.5px solid var(--ok);border-bottom:2.5px solid var(--ok);transform:rotate(-45deg)}
+details{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600;padding:16px 0;list-style:none;position:relative;padding-right:28px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:0;top:12px;font-size:22px;color:var(--muted)}
+details[open] summary::after{content:"–"}
+details p{margin:0 0 16px;color:var(--muted)}
+.contact{text-align:center}
+.mail{display:inline-block;font-size:clamp(18px,3vw,24px);font-weight:700;word-break:break-all;margin:6px 0 10px}
+footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+@media (max-width:760px){
+  nav.links{display:none}
+  .lang{margin-left:auto}
+  .hero{padding:44px 0 32px}
+  section{padding:44px 0}
+  .wrap{padding:0 16px}
+  .btn{width:100%;justify-content:center}
+  .cta .btn.ghost{width:100%}
+  th,td{padding:10px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="logo"><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z" fill="#fff"/></svg></span>MasterVideo</a>
+    <nav class="links" aria-label="Menu">
+      <a href="#features"><span class="vi">Tính năng</span><span class="en">Features</span></a>
+      <a href="#how"><span class="vi">Cách hoạt động</span><span class="en">How it works</span></a>
+      <a href="#install"><span class="vi">Cài đặt</span><span class="en">Install</span></a>
+      <a href="#trial"><span class="vi">Dùng thử</span><span class="en">Trial</span></a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact"><span class="vi">Liên hệ</span><span class="en">Contact</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Ngôn ngữ / Language">
+      <button type="button" data-set="vi" aria-pressed="true">VI</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<div class="hero">
+  <div class="wrap">
+    <span class="pill"><span class="vi">Phiên bản 1.0.4 · Windows 10/11</span><span class="en">Version 1.0.4 · Windows 10/11</span></span>
+    <h1><span class="vi">Làm video YouTube không lộ mặt, gần như tự động.</span><span class="en">Faceless YouTube videos, almost automatically.</span></h1>
+    <p class="lead">
+      <span class="vi">Bạn (cùng Claude, ChatGPT hoặc Gemini) viết kịch bản. MasterVideo lo phần còn lại: giọng đọc AI, ảnh / clip AI / cảnh 3D, hiệu ứng âm thanh, nhạc nền, dựng video có phụ đề, Shorts và gói đăng YouTube — chạy ngay trên máy bạn.</span>
+      <span class="en">You (with Claude, ChatGPT or Gemini) write the script. MasterVideo does the rest: AI voice-over, AI images / clips / 3D scenes, sound effects, background music, captioned video edit, Shorts and a YouTube upload pack — all on your own PC.</span>
+    </p>
+    <div class="cta" id="download">
+      <a class="btn" href="https://github.com/thanglducraina-del/MasterVideo/releases/latest" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 11l6 6 6-6M4 21h16"/></svg>
+        <span class="vi">Tải bản mới nhất cho Windows</span><span class="en">Download latest for Windows</span>
+      </a>
+      <a class="btn ghost" href="#install"><span class="vi">Xem cách cài</span><span class="en">How to install</span></a>
+    </div>
+    <p class="small" style="margin-top:12px">
+      <span class="vi">Miễn phí dùng thử 7 ngày hoặc 3 video, không cần key. File <kbd>MasterVideo_Setup_V….exe</kbd> trên GitHub Releases.</span>
+      <span class="en">Free trial: 7 days or 3 videos, no key needed. File <kbd>MasterVideo_Setup_V….exe</kbd> on GitHub Releases.</span>
+    </p>
+    <div class="flow" aria-hidden="true">
+      <span class="vi">Kịch bản</span><span class="en">Script</span><i>→</i>
+      <span class="vi">Giọng đọc AI</span><span class="en">AI voice</span><i>→</i>
+      <span class="vi">Ảnh / clip / 3D</span><span class="en">Images / clips / 3D</span><i>→</i>
+      <span class="vi">SFX + nhạc</span><span class="en">SFX + music</span><i>→</i>
+      <span class="vi">Dựng + phụ đề</span><span class="en">Edit + captions</span><i>→</i>
+      <span>Shorts</span><i>→</i>
+      <span class="vi">Gói YouTube</span><span class="en">YouTube pack</span>
+    </div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2><span class="vi">Tính năng</span><span class="en">Features</span></h2>
+    <p class="sub"><span class="vi">Mọi thứ có trong bản 1.0.4.</span><span class="en">Everything included in version 1.0.4.</span></p>
+    <div class="grid">
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 3l14 9-14 9z"/></svg></div>
+        <h3><span class="vi">LÀM VIDEO 1 nút</span><span class="en">MAKE VIDEO with 1 button</span></h3>
+        <p><span class="vi">Nạp gói kịch bản từ thư mục Downloads, máy tự chạy hết: ảnh thật có giấy phép → kế hoạch hình → ảnh / clip → giọng → dựng → duyệt → Shorts → thumbnail.</span><span class="en">Loads the script package from Downloads and runs everything: licensed real photos → visual plan → images / clips → voice → edit → review → Shorts → thumbnail.</span></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+        <h3><span class="vi">Giọng đọc theo nước</span><span class="en">Voices by country</span></h3>
+        <p><span class="vi">Giọng miễn phí chạy trên máy (16 ngôn ngữ, không cần key) hoặc ElevenLabs / Azure / Fish Audio bằng key của bạn; 6 giọng ElevenLabs chọn sẵn cho mỗi nước. Máy nghe lại từng câu, đọc sai thì tự tạo lại.</span><span class="en">Free on-device voices (16 languages, no key) or ElevenLabs / Azure / Fish Audio with your own key; 6 curated ElevenLabs voices per country. Every sentence is re-checked and regenerated if misread.</span></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 15l5-5 4 4 3-3 6 6"/></svg></div>
+        <h3><span class="vi">Ảnh &amp; clip AI trên card NVIDIA</span><span class="en">AI images &amp; clips on your NVIDIA card</span></h3>
+        <p><span class="vi">FLUX.2 klein, Z-Image-Turbo, Qwen-Image-2512, Wan 2.2 qua ComfyUI — không tốn phí API. Máy tự soi ảnh lỗi bằng AI trên máy và vẽ lại; cảnh 3D bằng Blender.</span><span class="en">FLUX.2 klein, Z-Image-Turbo, Qwen-Image-2512, Wan 2.2 via ComfyUI — no API charges. An on-device AI checks images for defects and redraws them; 3D scenes via Blender.</span></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3><span class="vi">Clip AI qua API, có trần chi tiêu</span><span class="en">Paid clip APIs with a spending cap</span></h3>
+        <p><span class="vi">Google, fal.ai (Kling, Seedance, Wan, Veo), Runway bằng key của bạn. Ước tính giá trước khi chạy, trần chi mặc định 5 USD/lần, 20 USD/ngày; mỗi clip chỉ gửi trả phí 1 lần.</span><span class="en">Google, fal.ai (Kling, Seedance, Wan, Veo), Runway with your own key. Cost estimate before running, default cap 5 USD/run and 20 USD/day; each clip is billed only once.</span></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+        <h3><span class="vi">SFX theo kịch bản, nhạc nền tự tạo</span><span class="en">Script-driven SFX, generated music</span></h3>
+        <p><span class="vi">Viết thẻ <kbd>[SFX: … | 3s]</kbd> ngay trong kịch bản, âm thanh đặt đúng lúc từ đó được đọc. Nhạc nền tự tạo CC0 (8 kiểu), tránh khiếu nại Content ID.</span><span class="en">Write <kbd>[SFX: … | 3s]</kbd> tags in the script; the sound lands exactly on that word. Generated CC0 background music (8 styles) to avoid Content ID claims.</span></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <h3><span class="vi">Shorts, thumbnail, đăng YouTube</span><span class="en">Shorts, thumbnails, YouTube</span></h3>
+        <p><span class="vi">Cắt 3–6 Shorts 9:16 phụ đề lớn (cả TikTok / Facebook / X), 5 thumbnail ứng viên. Chỉ đăng YouTube ở chế độ Riêng tư + hẹn giờ, sau khi bạn duyệt, có gắn nhãn nội dung AI.</span><span class="en">Cuts 3–6 vertical Shorts with large captions (also TikTok / Facebook / X), 5 thumbnail candidates. Uploads to YouTube only as Private + scheduled, after your approval, with the AI-content label.</span></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M20.4 14.5L16 10 4 20M14 4h6v6M20 4l-8 8"/></svg></div>
+        <h3><span class="vi">Video review sản phẩm</span><span class="en">Product review videos</span></h3>
+        <p><span class="vi">Từ ảnh người review + ảnh sản phẩm + kịch bản. AI "mặc thử" quần áo, giày, đồng hồ, trang sức lên nhân vật (Qwen-Image-Edit trên máy hoặc Gemini API), tự so mặt và sản phẩm để bạn duyệt.</span><span class="en">From reviewer photos + product photos + a script. AI try-on of clothes, shoes, watches and jewellery (Qwen-Image-Edit on-device or Gemini API), with face and product matching flagged for your review.</span></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3><span class="vi">2 điểm duyệt, chạy tiếp không tốn tiền lại</span><span class="en">2 review stops, resume without re-billing</span></h3>
+        <p><span class="vi">Duyệt kịch bản + giọng mẫu trước khi tạo cả giọng; duyệt storyboard trước khi tạo clip. TIẾP TỤC LẦN TRƯỚC bỏ qua bước đã xong.</span><span class="en">Approve the script + a sample voice line before full voice-over; approve the storyboard before clips. CONTINUE LAST RUN skips finished steps.</span></p></div>
+      <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+        <h3><span class="vi">Điện thoại, kiểm máy, tự cập nhật</span><span class="en">Phone access, machine check, updates</span></h3>
+        <p><span class="vi">Mở bảng điều khiển trên điện thoại (mã QR + PIN 6 số). Thẻ KIỂM TRA MÁY &amp; TẢI MODEL bấm 1 nút. Bản cập nhật ký số, nút đỏ/xanh ở góc trên.</span><span class="en">Open the control panel on your phone (QR code + 6-digit PIN). One-click MACHINE CHECK &amp; MODEL DOWNLOAD card. Signed updates via the red/green button at the top.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2><span class="vi">Cách hoạt động</span><span class="en">How it works</span></h2>
+    <p class="sub"><span class="vi">Bảng điều khiển mở trong trình duyệt, 6 bước. Ô vàng <b>BƯỚC TIẾP THEO</b> luôn nói bạn cần làm gì.</span><span class="en">A control panel in your browser with 6 steps. The yellow <b>NEXT STEP</b> box always tells you what to do.</span></p>
+    <ol class="steps">
+      <li><b><span class="vi">Viết kịch bản cùng AI</span><span class="en">Write the script with AI</span></b><span class="d"><span class="vi">Claude / ChatGPT / Gemini trả về 1 file zip (kịch bản + dữ liệu). Tải vào thư mục Downloads.</span><span class="en">Claude / ChatGPT / Gemini returns one zip (script + data). Save it to Downloads.</span></span></li>
+      <li><b><span class="vi">Bấm LÀM VIDEO</span><span class="en">Click MAKE VIDEO</span></b><span class="d"><span class="vi">Chọn số Shorts và nguồn ảnh/clip (card NVIDIA miễn phí hoặc API trả phí).</span><span class="en">Pick the number of Shorts and the image/clip source (free NVIDIA card or paid API).</span></span></li>
+      <li><b><span class="vi">Duyệt ở 2 điểm dừng</span><span class="en">Approve at 2 review stops</span></b><span class="d"><span class="vi">Kịch bản + giọng mẫu, rồi storyboard ảnh tĩnh (ô viền vàng = ảnh nghi lỗi) trước bước nặng/tốn tiền.</span><span class="en">Script + sample voice, then a still-image storyboard (yellow border = suspected defect) before the heavy or paid steps.</span></span></li>
+      <li><b><span class="vi">Máy dựng video</span><span class="en">The PC builds the video</span></b><span class="d"><span class="vi">Giọng, SFX, nhạc nền, phụ đề khớp giọng, dựng (tăng tốc bằng card NVIDIA nếu có), cắt Shorts, làm thumbnail.</span><span class="en">Voice, SFX, music, synced captions, editing (NVIDIA-accelerated if available), Shorts, thumbnails.</span></span></li>
+      <li><b><span class="vi">Duyệt và đăng</span><span class="en">Review and publish</span></b><span class="d"><span class="vi">Xem lại, rồi đăng YouTube ở chế độ Riêng tư + hẹn giờ. Video không bao giờ công khai ngay.</span><span class="en">Review, then upload to YouTube as Private + scheduled. Nothing ever goes public immediately.</span></span></li>
+    </ol>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2><span class="vi">Cài đặt</span><span class="en">Installation</span></h2>
+    <p class="sub"><span class="vi">Khoảng vài phút, sau đó máy tự tải phần còn thiếu.</span><span class="en">A few minutes; the app then downloads whatever is missing.</span></p>
+    <ol class="steps">
+      <li><b><span class="vi">Tải bộ cài</span><span class="en">Download the installer</span></b><span class="d"><span class="vi">Vào <a href="https://github.com/thanglducraina-del/MasterVideo/releases/latest" rel="noopener">GitHub Releases</a>, tải file <kbd>MasterVideo_Setup_V….exe</kbd> mới nhất.</span><span class="en">Go to <a href="https://github.com/thanglducraina-del/MasterVideo/releases/latest" rel="noopener">GitHub Releases</a> and download the latest <kbd>MasterVideo_Setup_V….exe</kbd>.</span></span></li>
+      <li><b><span class="vi">Qua cảnh báo SmartScreen</span><span class="en">Get past SmartScreen</span></b><span class="d"><span class="vi">Bấm đúp file cài. Nếu Windows hiện «Windows protected your PC»: bấm <kbd>More info</kbd> → <kbd>Run anyway</kbd>. Cảnh báo này hiện vì bộ cài chưa có chữ ký số trả phí.</span><span class="en">Double-click the installer. If Windows shows “Windows protected your PC”: click <kbd>More info</kbd> → <kbd>Run anyway</kbd>. It appears because the installer is not yet signed with a paid code-signing certificate.</span></span></li>
+      <li><b><span class="vi">Cài</span><span class="en">Install</span></b><span class="d"><span class="vi">Chọn <kbd>I accept the agreement</kbd>, giữ thư mục gợi ý (ổ D: hoặc E:), bấm <kbd>Install</kbd>.</span><span class="en">Choose <kbd>I accept the agreement</kbd>, keep the suggested folder (drive D: or E:), click <kbd>Install</kbd>.</span></span></li>
+      <li><b><span class="vi">Kiểm máy &amp; tải model</span><span class="en">Machine check &amp; models</span></b><span class="d"><span class="vi">Mở <b>Master Video - Bang dieu khien</b> ngoài Desktop → thẻ <b>KIỂM TRA MÁY &amp; TẢI MODEL</b> → <b>KIỂM TRA MÁY</b>, bấm nút tải ở mục còn thiếu (đứt mạng thì bấm lại, tải tiếp được).</span><span class="en">Open <b>Master Video - Bang dieu khien</b> on the Desktop → <b>MACHINE CHECK &amp; MODEL DOWNLOAD</b> card → run the check, then click the download buttons for missing items (downloads resume if interrupted).</span></span></li>
+    </ol>
+    <p class="note"><span class="vi">ComfyUI, FFmpeg và Blender không nằm trong bộ cài — phần mềm tải bản chính thức về máy bạn khi bạn bấm nút. Mỗi bộ cài kèm hướng dẫn tiếng Việt và tiếng Anh, chính sách quyền riêng tư và giấy phép phần mềm bên thứ ba.</span><span class="en">ComfyUI, FFmpeg and Blender are not bundled — the app downloads their official releases when you click the button. Each installer includes Vietnamese and English guides, the privacy policy and third-party licences.</span></p>
+  </div>
+</section>
+
+<section id="trial">
+  <div class="wrap">
+    <h2><span class="vi">Dùng thử &amp; bản quyền</span><span class="en">Trial &amp; licence</span></h2>
+    <p class="sub"><span class="vi">Cài xong là dùng được ngay, không cần key.</span><span class="en">Works right after install, no key needed.</span></p>
+    <div class="two">
+      <div class="card">
+        <h3><span class="vi">Dùng thử miễn phí</span><span class="en">Free trial</span></h3>
+        <ul class="check" style="margin-top:12px">
+          <li><span class="vi"><b>7 ngày hoặc 3 video</b>, cái nào hết trước.</span><span class="en"><b>7 days or 3 videos</b>, whichever comes first.</span></li>
+          <li><span class="vi">Mở mọi tính năng, trừ <b>Tìm kiếm &amp; phân tích ngách</b> (khoá trong bản dùng thử).</span><span class="en">All features unlocked except <b>niche research &amp; analysis</b> (locked during the trial).</span></li>
+          <li><span class="vi">Dựng lại cùng kịch bản và cắt Shorts không tính thêm video.</span><span class="en">Re-rendering the same script and cutting Shorts don't count as extra videos.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3><span class="vi">Key gói ĐẦY ĐỦ</span><span class="en">Full licence key</span></h3>
+        <ul class="check" style="margin-top:12px">
+          <li><span class="vi">Bảng điều khiển → <b>Bản quyền</b> → <b>Sao chép mã máy</b>, gửi mã máy để mua key (nút <b>☎ Liên hệ</b> trong phần mềm hoặc email bên dưới).</span><span class="en">Control panel → <b>Licence</b> → <b>Copy machine code</b>, then send it to buy a key (<b>☎ Contact</b> button in the app, or the email below).</span></li>
+          <li><span class="vi">Key gắn 1 máy; có nút chuyển sang máy khác.</span><span class="en">One key per PC, with a built-in transfer to another PC.</span></li>
+          <li><span class="vi">Hết dùng thử, video đã làm vẫn mở và đăng bình thường. Cập nhật giữ nguyên key, dữ liệu, API key.</span><span class="en">After the trial, videos you made stay usable. Updates keep your key, data and API keys.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="requirements">
+  <div class="wrap">
+    <h2><span class="vi">Yêu cầu máy</span><span class="en">Requirements</span></h2>
+    <p class="sub"><span class="vi">Không có card NVIDIA vẫn làm được video (ảnh/clip thật có giấy phép hoặc API trả phí).</span><span class="en">No NVIDIA card? You can still make videos with licensed real photos/clips or paid APIs.</span></p>
+    <table>
+      <thead><tr><th></th><th><span class="vi">Tối thiểu</span><span class="en">Minimum</span></th><th><span class="vi">Khuyên dùng</span><span class="en">Recommended</span></th></tr></thead>
+      <tbody>
+        <tr><th><span class="vi">Hệ điều hành</span><span class="en">OS</span></th><td>Windows 10 / 11, 64-bit</td><td>Windows 11</td></tr>
+        <tr><th><span class="vi">Card đồ hoạ</span><span class="en">GPU</span></th><td><span class="vi">Không bắt buộc</span><span class="en">Not required</span></td><td><span class="vi">NVIDIA ≥ 8 GB VRAM, driver mới</span><span class="en">NVIDIA ≥ 8 GB VRAM, recent driver</span></td></tr>
+        <tr><th>RAM</th><td>16 GB</td><td>32 GB</td></tr>
+        <tr><th><span class="vi">Ổ đĩa trống</span><span class="en">Free disk</span></th><td>~20 GB</td><td><span class="vi">100–250 GB SSD nếu tạo ảnh/clip AI trên máy</span><span class="en">100–250 GB SSD for on-device AI images/clips</span></td></tr>
+        <tr><th>API key</th><td colspan="2"><span class="vi">Không bắt buộc. Dịch vụ trả phí (ElevenLabs, Google Gemini, fal.ai, Runway, Fish Audio, Azure…) dùng key của chính bạn (BYOK) — bạn trả tiền trực tiếp cho nhà cung cấp.</span><span class="en">Optional. Paid services (ElevenLabs, Google Gemini, fal.ai, Runway, Fish Audio, Azure…) use your own keys (BYOK) — you pay the provider directly.</span></td></tr>
+      </tbody>
+    </table>
+    <p class="small"><span class="vi">Chưa hỗ trợ Mac / Linux, và chưa hỗ trợ tạo ảnh/clip trên máy bằng card AMD / Intel.</span><span class="en">Mac / Linux are not supported, nor on-device image/clip generation on AMD / Intel GPUs.</span></p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2><span class="vi">Câu hỏi thường gặp</span><span class="en">FAQ</span></h2>
+    <div style="height:20px"></div>
+    <details><summary><span class="vi">Không có API key có dùng được không?</span><span class="en">Can I use it without any API keys?</span></summary>
+      <p><span class="vi">Được. Không có key vẫn dùng giọng miễn phí trên máy, ảnh/clip trên card NVIDIA và nhạc nền tự tạo. Key trả phí chỉ cần khi bạn muốn giọng ElevenLabs/Azure/Fish Audio hoặc ảnh/clip qua API.</span><span class="en">Yes. Without keys you get free on-device voices, local NVIDIA image/clip generation and generated background music. Paid keys are only needed for ElevenLabs/Azure/Fish Audio voices or API images/clips.</span></p></details>
+    <details><summary><span class="vi">Vì sao Windows báo «Windows protected your PC»?</span><span class="en">Why does Windows say “Windows protected your PC”?</span></summary>
+      <p><span class="vi">Bộ cài chưa có chữ ký số trả phí nên SmartScreen cảnh báo. Bấm More info → Run anyway. Bản cập nhật bên trong phần mềm được ký số và kiểm mã băm.</span><span class="en">The installer isn't signed with a paid certificate yet, so SmartScreen warns. Click More info → Run anyway. In-app updates are signed and hash-checked.</span></p></details>
+    <details><summary><span class="vi">Phần mềm có tự đăng video công khai không?</span><span class="en">Will it publish videos publicly on its own?</span></summary>
+      <p><span class="vi">Không. Phần mềm chỉ tải lên YouTube ở chế độ Riêng tư + hẹn giờ, sau khi bạn duyệt, và kiểm đúng kênh trước khi đăng.</span><span class="en">No. It only uploads to YouTube as Private + scheduled, after you approve, and checks it's the right channel first.</span></p></details>
+    <details><summary><span class="vi">Chi phí API có bị vượt kiểm soát không?</span><span class="en">Can API costs run away?</span></summary>
+      <p><span class="vi">Mọi bước tốn tiền có nút XEM CHI PHÍ hoặc ước tính trước, có trần chi tiêu (mặc định 5 USD/lần, 20 USD/ngày) và sổ chi. Chạy tiếp lần trước không tạo lại thứ đã có.</span><span class="en">Every paid step shows a cost estimate first, with a spending cap (default 5 USD/run, 20 USD/day) and a spending log. Resuming never regenerates what already exists.</span></p></details>
+    <details><summary><span class="vi">Video có dùng kiếm tiền được không?</span><span class="en">Can I monetise the videos?</span></summary>
+      <p><span class="vi">Phần mềm ưu tiên hình thật có giấy phép, nhạc nền tự tạo CC0 và gắn nhãn nội dung AI. Lưu ý: gói miễn phí của một số nhà cung cấp AI cấm dùng thương mại — hãy đọc điều khoản trước khi đăng video kiếm tiền.</span><span class="en">The app prefers licensed real footage, generated CC0 music and applies the AI-content label. Note that some AI providers' free tiers forbid commercial use — check their terms before publishing monetised videos.</span></p></details>
+    <details><summary><span class="vi">Cập nhật thế nào? Có mất dữ liệu không?</span><span class="en">How do updates work? Will I lose data?</span></summary>
+      <p><span class="vi">Nút góc trên bên phải: xanh = mới nhất, đỏ = có bản mới, bấm để cập nhật (phần mềm chờ xong video đang dựng rồi mới cài). Cập nhật giữ nguyên key, dữ liệu, API key.</span><span class="en">Top-right button: green = up to date, red = update available, click to update (it waits until the current render finishes). Your key, data and API keys are kept.</span></p></details>
+    <details><summary><span class="vi">Repo GitHub có chứa mã nguồn không?</span><span class="en">Does the GitHub repo contain source code?</span></summary>
+      <p><span class="vi">Không. Repo chỉ chứa bộ cài và file thông tin cập nhật có chữ ký số.</span><span class="en">No. It only hosts the installer and the signed update file.</span></p></details>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2><span class="vi">Liên hệ</span><span class="en">Contact</span></h2>
+    <p class="sub" style="margin:0 auto 8px"><span class="vi">Mua key, hỗ trợ cài đặt, báo lỗi:</span><span class="en">Licence keys, install help, bug reports:</span></p>
+    <a class="mail" href="mailto:thanglducraina@icloud.com">thanglducraina@icloud.com</a>
+    <p class="small"><span class="vi">Khi mua key, gửi kèm mã máy (Bản quyền → Sao chép mã máy).</span><span class="en">When buying a key, include your machine code (Licence → Copy machine code).</span></p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 MasterVideo</span>
+    <span><a href="https://github.com/thanglducraina-del/MasterVideo/releases/latest" rel="noopener"><span class="vi">Tải về</span><span class="en">Download</span></a> · <a href="https://github.com/thanglducraina-del/MasterVideo" rel="noopener">GitHub</a></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement,btns=document.querySelectorAll('.lang button');
+  var T={vi:'MasterVideo – Phần mềm làm video YouTube faceless tự động cho Windows',en:'MasterVideo – Faceless YouTube video maker for Windows'};
+  function set(l,save){
+    if(l!=='en')l='vi';
+    root.setAttribute('data-lang',l);root.lang=l;document.title=T[l];
+    for(var i=0;i<btns.length;i++)btns[i].setAttribute('aria-pressed',btns[i].getAttribute('data-set')===l?'true':'false');
+    if(save){try{localStorage.setItem('mv-lang',l)}catch(e){}}
+  }
+  var q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+  var s=null;try{s=localStorage.getItem('mv-lang')}catch(e){}
+  set(q||s||'vi',false);
+  for(var i=0;i<btns.length;i++)btns[i].addEventListener('click',function(){set(this.getAttribute('data-set'),true)});
+})();
+</script>
+</body>
+</html>
