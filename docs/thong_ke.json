@@ -1,0 +1,246 @@
+{
+ "ban": {
+  "v1.0.4": {
+   "an": true,
+   "file": {
+    "MasterVideo_Setup_V1.0.4.exe": 4,
+    "ban_moi.json": 2
+   }
+  },
+  "v1.0.5": {
+   "an": true,
+   "file": {
+    "MasterVideo_Setup_V1.0.5.exe": 2,
+    "ban_moi.json": 2
+   }
+  },
+  "v1.0.6": {
+   "an": true,
+   "file": {
+    "MasterVideo_Setup_V1.0.6.exe": 2,
+    "ban_moi.json": 2
+   }
+  },
+  "v1.0.7": {
+   "an": true,
+   "file": {
+    "MasterVideo_Setup_V1.0.7.exe": 3,
+    "ban_moi.json": 2
+   }
+  },
+  "v1.0.8": {
+   "an": true,
+   "file": {
+    "MasterVideo_Setup_V1.0.8.exe": 2,
+    "ban_moi.json": 3
+   }
+  },
+  "v1.0.9": {
+   "an": false,
+   "file": {
+    "MasterVideo_Setup_V1.0.9.exe": 2,
+    "ban_moi.json": 2
+   }
+  }
+ },
+ "cap_nhat_luc": "2026-11-03T02:52:02Z",
+ "github_nguon": [
+  {
+   "count": 1,
+   "referrer": "github.com",
+   "uniques": 1
+  }
+ ],
+ "github_sao_chep": {
+  "2026-10-19": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-20": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-21": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-22": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-23": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-24": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-25": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-26": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-27": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-28": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-29": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-30": {
+   "luot": 6,
+   "nguoi": 4
+  },
+  "2026-10-31": {
+   "luot": 92,
+   "nguoi": 29
+  },
+  "2026-11-01": {
+   "luot": 6,
+   "nguoi": 4
+  }
+ },
+ "github_trang": [
+  {
+   "count": 3,
+   "path": "/thanglducraina-del/MasterVideo/releases/tag/v1.0.4",
+   "title": "/releases/tag/v1.0.4",
+   "uniques": 2
+  },
+  {
+   "count": 1,
+   "path": "/thanglducraina-del/MasterVideo",
+   "title": "Overview",
+   "uniques": 1
+  }
+ ],
+ "github_xem": {
+  "2026-10-19": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-20": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-21": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-22": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-23": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-24": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-25": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-26": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-27": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-28": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-29": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-30": {
+   "luot": 0,
+   "nguoi": 0
+  },
+  "2026-10-31": {
+   "luot": 4,
+   "nguoi": 3
+  },
+  "2026-11-01": {
+   "luot": 1,
+   "nguoi": 1
+  }
+ },
+ "noi_bo": {
+  "v1.0.4": {
+   "MasterVideo_Setup_V1.0.4.exe": 4,
+   "ban_moi.json": 2
+  },
+  "v1.0.5": {
+   "MasterVideo_Setup_V1.0.5.exe": 2,
+   "ban_moi.json": 2
+  },
+  "v1.0.6": {
+   "MasterVideo_Setup_V1.0.6.exe": 2,
+   "ban_moi.json": 2
+  },
+  "v1.0.7": {
+   "MasterVideo_Setup_V1.0.7.exe": 3,
+   "ban_moi.json": 2
+  },
+  "v1.0.8": {
+   "MasterVideo_Setup_V1.0.8.exe": 2,
+   "ban_moi.json": 3
+  },
+  "v1.0.9": {
+   "MasterVideo_Setup_V1.0.9.exe": 2,
+   "ban_moi.json": 2
+  }
+ },
+ "tai_theo_ngay": {
+  "2026-11-03": {
+   "v1.0.4": {
+    "MasterVideo_Setup_V1.0.4.exe": 4,
+    "ban_moi.json": 2
+   },
+   "v1.0.5": {
+    "MasterVideo_Setup_V1.0.5.exe": 2,
+    "ban_moi.json": 2
+   },
+   "v1.0.6": {
+    "MasterVideo_Setup_V1.0.6.exe": 2,
+    "ban_moi.json": 2
+   },
+   "v1.0.7": {
+    "MasterVideo_Setup_V1.0.7.exe": 3,
+    "ban_moi.json": 2
+   },
+   "v1.0.8": {
+    "MasterVideo_Setup_V1.0.8.exe": 2,
+    "ban_moi.json": 3
+   },
+   "v1.0.9": {
+    "MasterVideo_Setup_V1.0.9.exe": 2,
+    "ban_moi.json": 2
+   }
+  }
+ },
+ "web_nguoi_moi": {},
+ "web_tong": {
+  "bam-tai": 0,
+  "nguoi-moi": 0,
+  "xem-huong-dan": 0,
+  "xem-trang-chu": 0
+ },
+ "web_xem": {}
+}
