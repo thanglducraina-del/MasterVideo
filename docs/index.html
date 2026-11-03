@@ -335,5 +335,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   for(var i=0;i<btns.length;i++)btns[i].addEventListener('click',function(){set(this.getAttribute('data-set'),true)});
 })();
 </script>
+<script>
+/* Bo dem luot xem (abacus, khong cookie, khong luu thong tin ca nhan). Bo qua may quet va trinh duyet cua chu web. */
+(function(){
+  try{
+    if(navigator.webdriver||/bot|crawl|spider|slurp|preview|headless/i.test(navigator.userAgent))return;
+    var ls=window.localStorage;
+    if(/[?&]noi_bo=1/.test(location.search))ls.setItem('mv-noi-bo','1');
+    if(ls.getItem('mv-noi-bo'))return;
+    var A='https://abacus.jasoncameron.dev/hit/mastervideo-thangld/';
+    var hit=function(k){try{fetch(A+k,{mode:'cors',keepalive:true}).catch(function(){})}catch(e){}};
+    var d=new Date(),day=d.getUTCFullYear()+('0'+(d.getUTCMonth()+1)).slice(-2)+('0'+d.getUTCDate()).slice(-2);
+    hit(location.pathname.indexOf('huong-dan')>=0?'xem-huong-dan':'xem-trang-chu');hit('xem-ngay-'+day);
+    if(!ls.getItem('mv-da-den')){ls.setItem('mv-da-den','1');hit('nguoi-moi');hit('nguoi-ngay-'+day)}
+    document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="/releases"]');if(a)hit('bam-tai')},true);
+  }catch(e){}
+})();
+</script>
 </body>
 </html>
