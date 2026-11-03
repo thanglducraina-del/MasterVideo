@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Thống kê MasterVideo</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563eb'/%3E%3Cpath d='M16 46V30M28 46V18M40 46V26M52 46V12' stroke='%23fff' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#f8fafc;--surface:#fff;--surface-2:#eef2f7;--text:#0f172a;--muted:#475569;--border:#dbe2ea;--accent:#2563eb;--ok:#15803d;--warn:#b45309}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1120;--surface:#111a2e;--surface-2:#17223a;--text:#e5ecf5;--muted:#9fb0c6;--border:#24324d;--accent:#60a5fa;--ok:#4ade80;--warn:#fbbf24}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:880px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:22px;margin:0 0 4px}
+h2{font-size:16px;margin:28px 0 10px}
+.sub{color:var(--muted);font-size:13px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:16px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.card .k{color:var(--muted);font-size:12.5px}
+.card .v{font-size:28px;font-weight:650;font-variant-numeric:tabular-nums;line-height:1.2;margin-top:2px}
+.card .n{color:var(--muted);font-size:12px;margin-top:2px}
+.card.hl .v{color:var(--accent)}
+table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;font-variant-numeric:tabular-nums}
+th,td{padding:8px 10px;text-align:right;border-bottom:1px solid var(--border);font-size:14px}
+th:first-child,td:first-child{text-align:left}
+th{background:var(--surface-2);font-weight:600;font-size:12.5px;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.bars{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.row{display:grid;grid-template-columns:52px 1fr 64px;gap:8px;align-items:center;font-size:13px;margin:3px 0}
+.row .d{color:var(--muted);font-variant-numeric:tabular-nums}
+.track{height:12px;background:var(--surface-2);border-radius:6px;overflow:hidden;display:flex}
+.b1{background:var(--accent)}.b2{background:var(--ok)}
+.row .c{text-align:right;font-variant-numeric:tabular-nums}
+.legend{display:flex;gap:14px;font-size:12.5px;color:var(--muted);margin-bottom:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.note{color:var(--muted);font-size:12.5px;margin-top:8px}
+.tag{font-size:11px;padding:1px 6px;border-radius:6px;background:var(--surface-2);color:var(--muted);margin-left:6px}
+.err{color:var(--warn)}
+button{font:inherit;padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Thống kê MasterVideo</h1>
+  <p class="sub" id="luc">Đang tải số liệu…</p>
+
+  <div class="grid">
+    <div class="card hl"><div class="k">Lượt tải bộ cài (khách)</div><div class="v" id="c-tai">–</div><div class="n" id="c-tai-n"></div></div>
+    <div class="card"><div class="k">Máy kiểm tra cập nhật</div><div class="v" id="c-cn">–</div><div class="n">tải file ban_moi.json</div></div>
+    <div class="card"><div class="k">Người vào trang web</div><div class="v" id="c-nguoi">–</div><div class="n" id="c-nguoi-n"></div></div>
+    <div class="card"><div class="k">Lượt xem trang web</div><div class="v" id="c-xem">–</div><div class="n" id="c-xem-n"></div></div>
+    <div class="card"><div class="k">Bấm nút Tải trên web</div><div class="v" id="c-bam">–</div><div class="n">sang trang GitHub</div></div>
+    <div class="card"><div class="k">Xem trang GitHub</div><div class="v" id="c-gh">–</div><div class="n" id="c-gh-n"></div></div>
+  </div>
+
+  <h2>Trang web 14 ngày gần nhất</h2>
+  <div class="bars">
+    <div class="legend"><span><i class="b1"></i>Lượt xem</span><span><i class="b2"></i>Người mới</span></div>
+    <div id="bars"></div>
+  </div>
+
+  <h2>Lượt tải theo từng bản</h2>
+  <table>
+    <thead><tr><th>Bản</th><th>Bộ cài (khách)</th><th>File cập nhật</th></tr></thead>
+    <tbody id="ban"></tbody>
+  </table>
+  <p class="note">Đã trừ các lượt em tự tải để kiểm tra lúc phát hành. Lượt "file cập nhật" là số lần phần mềm đã cài trên máy khách hỏi GitHub có bản mới không.</p>
+
+  <h2>GitHub (trang mã nguồn)</h2>
+  <table>
+    <thead><tr><th>Ngày</th><th>Lượt xem</th><th>Người</th><th>Sao chép kho</th></tr></thead>
+    <tbody id="gh"></tbody>
+  </table>
+  <p class="note">Sao chép kho phần lớn là máy quét tự động, không phải khách. Bảng này được máy anh gom mỗi sáng, vì GitHub chỉ giữ 14 ngày.</p>
+
+  <p class="note" style="margin-top:22px"><button id="lai">Làm mới</button></p>
+</div>
+<script>
+(function(){
+  // Trinh duyet mo trang nay = may cua anh -> tu bo qua luot cua anh tren trang web.
+  try{localStorage.setItem('mv-noi-bo','1')}catch(e){}
+  var REPO='thanglducraina-del/MasterVideo', NS='mastervideo-thangld', AB='https://abacus.jasoncameron.dev/get/'+NS+'/';
+  function $(id){return document.getElementById(id)}
+  function fmt(n){return (n||0).toLocaleString('vi-VN')}
+  function getJ(u){return fetch(u,{cache:'no-store'}).then(function(r){if(!r.ok)throw r.status;return r.json()})}
+  function dem(k){return getJ(AB+k).then(function(j){return j.value||0},function(){return 0})}
+  function ymd(d){return d.getUTCFullYear()+('0'+(d.getUTCMonth()+1)).slice(-2)+('0'+d.getUTCDate()).slice(-2)}
+  function sum(o){var s=0;for(var k in o)s+=o[k]||0;return s}
+  function exe(files){var s=0;for(var k in files)if(/\.exe$/i.test(k))s+=files[k];return s}
+  function cn(files){return files['ban_moi.json']||0}
+  function vnum(t){return t.replace(/^v/,'').split('.').map(Number)}
+  function cmp(a,b){var x=vnum(a),y=vnum(b);for(var i=0;i<3;i++)if(x[i]!==y[i])return y[i]-x[i];return 0}
+
+  function chay(){
+    $('luc').textContent='Đang tải số liệu…';
+    var hom=new Date(), ngay=[];
+    for(var i=13;i>=0;i--){var d=new Date(hom.getTime()-i*864e5);ngay.push(ymd(d))}
+    var tk=getJ('thong_ke.json?t='+Date.now()).catch(function(){return {}});
+    var rel=getJ('https://api.github.com/repos/'+REPO+'/releases?per_page=100').catch(function(){return null});
+    var tong=Promise.all(['xem-trang-chu','xem-huong-dan','nguoi-moi','bam-tai'].map(dem));
+    var theoNgay=Promise.all(ngay.map(function(d){return Promise.all([dem('xem-ngay-'+d),dem('nguoi-ngay-'+d)])}));
+    Promise.all([tk,rel,tong,theoNgay]).then(function(r){
+      var T=r[0]||{}, R=r[1], W=r[2], N=r[3], nb=T.noi_bo||{};
+      // Ban: so moi nhat tu GitHub (ban cong khai) + ban da an lay tu ban gom cua may
+      var ban={}; for(var t in (T.ban||{}))ban[t]=T.ban[t].file;
+      if(R)R.forEach(function(x){var f={};(x.assets||[]).forEach(function(a){f[a.name]=a.download_count});ban[x.tag_name]=f});
+      var tags=Object.keys(ban).sort(cmp), taiK=0, cnK=0, rows='';
+      tags.forEach(function(t){
+        var o=nb[t]||{}, a=Math.max(0,exe(ban[t])-exe(o)), b=Math.max(0,cn(ban[t])-cn(o));
+        taiK+=a;cnK+=b;
+        rows+='<tr><td>'+t+(t===tags[0]?'<span class="tag">mới nhất</span>':'')+'</td><td>'+fmt(a)+'</td><td>'+fmt(b)+'</td></tr>';
+      });
+      $('ban').innerHTML=rows||'<tr><td colspan="3">Chưa có số liệu</td></tr>';
+      $('c-tai').textContent=fmt(taiK); $('c-cn').textContent=fmt(cnK);
+      $('c-tai-n').textContent='tổng tất cả các bản';
+      // Web
+      $('c-xem').textContent=fmt(W[0]+W[1]); $('c-xem-n').textContent='trang chủ '+fmt(W[0])+' · hướng dẫn '+fmt(W[1]);
+      $('c-nguoi').textContent=fmt(W[2]); $('c-bam').textContent=fmt(W[3]);
+      var hx=N[N.length-1]; $('c-nguoi-n').textContent='hôm nay '+fmt(hx[1])+' người mới, '+fmt(hx[0])+' lượt xem';
+      var mx=1; N.forEach(function(p){mx=Math.max(mx,p[0],p[1])});
+      $('bars').innerHTML=N.map(function(p,i){var d=ngay[i];
+        return '<div class="row"><span class="d">'+d.slice(6)+'/'+d.slice(4,6)+'</span><span class="track"><span class="b1" style="width:'+(p[0]/mx*100)+'%"></span></span><span class="c">'+fmt(p[0])+'</span></div>'+
+               '<div class="row"><span></span><span class="track"><span class="b2" style="width:'+(p[1]/mx*100)+'%"></span></span><span class="c">'+fmt(p[1])+'</span></div>'}).join('');
+      // GitHub
+      var gx=T.github_xem||{}, gc=T.github_sao_chep||{}, ds=Object.keys(Object.assign({},gx,gc)).sort().reverse(), gTong=0, gNg=0;
+      ds.forEach(function(d){gTong+=(gx[d]||{}).luot||0;gNg+=(gx[d]||{}).nguoi||0});
+      $('c-gh').textContent=fmt(gTong); $('c-gh-n').textContent='cộng dồn từ '+(ds.length?ds[ds.length-1].split('-').reverse().slice(0,2).join('/'):'–');
+      var gr=ds.filter(function(d){var a=gx[d]||{},b=gc[d]||{};return a.luot||b.luot}).map(function(d){var a=gx[d]||{},b=gc[d]||{};
+        return '<tr><td>'+d.split('-').reverse().join('/')+'</td><td>'+fmt(a.luot)+'</td><td>'+fmt(a.nguoi)+'</td><td>'+fmt(b.luot)+'</td></tr>'}).join('');
+      $('gh').innerHTML=gr||'<tr><td colspan="4">Chưa có lượt nào</td></tr>';
+      var luc=T.cap_nhat_luc?new Date(T.cap_nhat_luc).toLocaleString('vi-VN'):'chưa có';
+      $('luc').innerHTML='Trang web và lượt tải: số trực tiếp. GitHub gom lúc '+luc+'.'+(R?'':' <span class="err">Không đọc được GitHub, đang dùng số đã gom.</span>');
+    }).catch(function(e){$('luc').innerHTML='<span class="err">Lỗi tải số liệu: '+e+'</span>'});
+  }
+  $('lai').addEventListener('click',chay);
+  chay();
+})();
+</script>
+</body>
+</html>
