@@ -15,6 +15,32 @@ It also builds product-review videos from reviewer photos, product photos and a 
 Vào mục **[Releases](../../releases/latest)** và tải file `MasterVideo_Setup_V….exe` mới nhất.
 *Go to **[Releases](../../releases/latest)** and download the latest `MasterVideo_Setup_V….exe`.*
 
+### Windows chặn bộ cài ("Smart App Control blocked an app")?
+
+Windows 11 cài mới thường bật sẵn **Smart App Control**. Tính năng này chặn phần mềm chưa có chữ ký số, trong đó có bộ cài MasterVideo. Muốn cài, anh/chị tắt tính năng này:
+
+1. Bấm phím Windows, gõ **Smart App Control**, chọn **Smart App Control settings**.
+2. Chọn **Off**, rồi bấm **Yes** khi Windows hỏi.
+3. Chạy lại bộ cài `MasterVideo_Setup_V1.0.10.exe`.
+
+**Lưu ý quan trọng:** sau khi tắt, Windows KHÔNG cho bật lại Smart App Control, trừ khi cài lại Windows. Các lớp bảo vệ khác vẫn hoạt động bình thường: Microsoft Defender (diệt virus), tường lửa, SmartScreen. Chỉ tải bộ cài từ trang chính thức: https://github.com/thanglducraina-del/MasterVideo/releases
+
+Nếu thấy màn hình xanh "Windows protected your PC" (SmartScreen), bấm **More info** rồi bấm **Run anyway**.
+
+### Windows blocked the installer ("Smart App Control blocked an app")?
+
+New Windows 11 installs often turn on **Smart App Control**, which blocks software that has no code signature, including the MasterVideo installer. To install:
+
+1. Press the Windows key, type **Smart App Control**, open **Smart App Control settings**.
+2. Choose **Off** and confirm with **Yes**.
+3. Run `MasterVideo_Setup_V1.0.10.exe` again.
+
+**Important:** once turned off, Smart App Control cannot be turned back on without reinstalling Windows. Your other protections keep working: Microsoft Defender antivirus, firewall, SmartScreen. Only download the installer from the official page: https://github.com/thanglducraina-del/MasterVideo/releases
+
+If you see the blue "Windows protected your PC" screen (SmartScreen), click **More info** → **Run anyway**.
+
+**Các bước cài / Install steps:**
+
 1. Bấm đúp file cài. Windows có thể hiện **«Windows protected your PC»** (SmartScreen) vì bộ cài chưa có chữ ký số trả phí: bấm **More info → Run anyway**.
    *Windows SmartScreen may warn because the installer is not code-signed yet: click **More info → Run anyway**.*
 2. Chọn **I accept the agreement**, giữ thư mục gợi ý (ổ D: hoặc E:), **Install**.
